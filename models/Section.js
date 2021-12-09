@@ -24,10 +24,12 @@ const SectionSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
-  activitiesQuiz: {
-    type: Array,
-    default: [],
-  },
+  activitiesQuiz: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Quiz",
+    },
+  ],
 
   createdAt: {
     type: Date,
