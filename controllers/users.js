@@ -94,6 +94,21 @@ exports.enroll = asyncHandler(async (req, res, next) => {
 
   user.courses.push(course._id);
 
+  let prorgress = {};
+  prorgress.courseID = course._id;
+  prorgress.sections = [];
+
+  course.sections.forEach((sectionID) => {
+    let quizSection = {};
+    quizSection.id = sectionID;
+    quizSection.grade = 0;
+    quizSection.passed = false;
+    prorgress.sections.push(quizSection);
+  });
+
+  user.progress = prorgress;
+
+ 
   await user.save();
   course.subscribers.push(user._id);
   await course.save();

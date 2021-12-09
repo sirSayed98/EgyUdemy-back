@@ -11,7 +11,7 @@ exports.addQuiz = asyncHandler(async (req, res, next) => {
   req.body.section = req.params.sectionId;
 
   const quiz = await Quiz.create(req.body);
-  section.activitiesQuiz = [...section.activitiesQuiz, quiz._id];
+  section.activitiesQuiz = quiz._id;
 
   await section.save();
 
