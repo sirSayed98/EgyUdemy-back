@@ -1,6 +1,7 @@
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async");
 const User = require("../models/User");
+const Course = require("../models/Course");
 
 // @desc      Get all users
 // @route     GET /api/v1/auth/users
@@ -75,5 +76,49 @@ exports.toggleLearner = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     data: user,
+  });
+});
+
+// @desc      Update user
+// @route     PUT /api/v1/users/enroll/:id
+// @access    Private (Learner)
+exports.enroll = asyncHandler(async (req, res, next) => {
+  let course = await Course.findById(req.params.id);
+  let user = req.user;
+
+  user.courses.forEach((id) => {
+    if (JSON.stringify(id) === JSON.stringify(course._id)) {
+      return next(new ErrorResponse(`this user has enrolled before `, 400));
+    }
+  });
+
+  user.courses.push(course._id);
+
+  await user.save();
+  course.subscribers.push(user._id);
+  await course.save();
+
+  res.status(200).json({
+    success: true,
+    user,
+    course,
+  });
+});
+
+// @desc      Update user
+// @route     PUT /api/v1/users/available-courses
+// @access    Private (Learner)
+
+exports.getAvailableCourses = asyncHandler(async (req, res, next) => {
+  const courses = await Course.find();
+  let userCourses = req.user.courses;
+  let availableCourses = [];
+
+  courses.forEach((course) => {
+    if (!userCourses.includes(course._id)) availableCourses.push(course);
+  });
+  res.status(200).json({
+    success: true,
+    courses: availableCourses,
   });
 });

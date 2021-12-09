@@ -26,6 +26,7 @@ connectDB();
 const auth = require("./routes/auth");
 const users = require("./routes/users");
 const courses = require("./routes/courses");
+const sections = require("./routes/sections");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -73,6 +74,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/users", users);
 app.use("/api/v1/courses", courses);
+app.use("/api/v1/sections", sections);
 
 //errorHandler
 app.use(errorHandler);

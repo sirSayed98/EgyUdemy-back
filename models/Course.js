@@ -32,14 +32,18 @@ const CourseSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  activitiesVideos: {
-    type: Array,
-    default: [],
-  },
-  activitiesPDFs: {
-    type: Array,
-    default: [],
-  },
+  sections: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Section",
+    },
+  ],
+  subscribers: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Course", CourseSchema);

@@ -4,7 +4,7 @@ const Course = require("../models/Course");
 
 // @desc      Add course
 // @route     POST /api/v1/courses
-// @access    Private
+// @access    Private (admin-intructor)
 exports.addCourse = asyncHandler(async (req, res, next) => {
   req.body.instructor = req.user._id;
   const course = await Course.create(req.body);
@@ -15,34 +15,30 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc      Add Video course
-// @route     PUT /api/v1/courses/:id/video
-// @access    Private
-exports.addActivityVideo = asyncHandler(async (req, res, next) => {
-  let course = await checkCourseInstructor(req);
-  course.activitiesVideos = [...course.activitiesVideos, ...req.body.videos];
+// @desc      Get All courses
+// @route     Get /api/v1/courses/
+// @access    Public
+exports.getCourses = asyncHandler(async (req, res, next) => {
+  const courses = await Course.find();
+  res.status(200).json({
+    success: true,
+    count: courses.length,
+    data: courses,
+  });
+});
 
-  await course.save();
+// @desc      Get single course
+// @route     Get /api/v1/courses/:id
+// @access    Public
+exports.getSingleCourses = asyncHandler(async (req, res, next) => {
+  const course = await Course.findById(req.params.id);
   res.status(200).json({
     success: true,
     data: course,
   });
 });
-// @desc      Add PDF course
-// @route     PUT /api/v1/courses/:id/pdf
-// @access    Private
-exports.addActivityPDF = asyncHandler(async (req, res, next) => {
-  let course = await checkCourseInstructor(req);
-  course.activitiesPDFs = [...course.activitiesPDFs, ...req.body.pdfs];
 
-  await course.save();
-  res.status(200).json({
-    success: true,
-    data: course,
-  });
-});
-
-const checkCourseInstructor = async (req) => {
+const checkCourseInstructor = async (req, next) => {
   let course = await Course.findById(req.params.id);
 
   if (!course) {
