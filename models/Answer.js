@@ -17,7 +17,11 @@ const AnswerSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-
+  userName: {
+    type: String,
+    required: true,
+    default: "",
+  },
   createdAt: {
     type: Date,
     default: Date.now,

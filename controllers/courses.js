@@ -21,7 +21,9 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
 // @route     Get /api/v1/courses/
 // @access    Public
 exports.getCourses = asyncHandler(async (req, res, next) => {
-  const courses = await Course.find().populate("sections", "title");
+  const courses = await Course.find()
+    .populate("sections", "title")
+    .populate("instructor", "userName");
   res.status(200).json({
     success: true,
     count: courses.length,
@@ -33,7 +35,17 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
 // @route     Get /api/v1/courses/:id
 // @access    Public
 exports.getSingleCourses = asyncHandler(async (req, res, next) => {
-  const course = await Course.findById(req.params.id);
+  const course = await Course.findById(req.params.id)
+    .populate("instructor", "userName")
+    .populate("sections", "title description")
+    .populate({
+      path: "FAQs",
+      select: "answer title createdAt",
+      populate: {
+        path: "answers",
+        select: "answer userID",
+      },
+    });
   res.status(200).json({
     success: true,
     data: course,
@@ -89,13 +101,14 @@ exports.answerQuestion = asyncHandler(async (req, res, next) => {
 
   if (!FAQ) {
     return next(
-      new ErrorResponse(`FAQ with id ${req.params.id} not found`, 404)
+      new ErrorResponse(`FAQ with id ${req.params.FAQID} not found`, 404)
     );
   }
   const answer = await Answer.create({
     ...req.body,
     faqID: FAQ.id,
     userID: req.user.id,
+    userName: req.user.userName,
   });
 
   FAQ.answers = [...FAQ.answers, answer.id];
