@@ -44,6 +44,16 @@ const CourseSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+  FAQs: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "FAQ",
+      default: [],
+    },
+  ],
+}, {
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
 });
 
 module.exports = mongoose.model("Course", CourseSchema);

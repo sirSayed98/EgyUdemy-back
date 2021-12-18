@@ -47,7 +47,7 @@ const UserSchema = new mongoose.Schema({
     },
   ],
   progress: {
-    type: Object,
+    type: Array,
   },
 
   createdAt: {

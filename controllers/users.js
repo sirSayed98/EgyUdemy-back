@@ -71,7 +71,7 @@ exports.toggleLearner = asyncHandler(async (req, res, next) => {
   if (!user) {
     return next(new ErrorResponse(`This user not found`, 400));
   }
-  user.role = user.role === "learner" ? "instructor" : "learner";
+  user.role = "instructor";
   await user.save();
   res.status(200).json({
     success: true,
@@ -106,9 +106,8 @@ exports.enroll = asyncHandler(async (req, res, next) => {
     prorgress.sections.push(quizSection);
   });
 
-  user.progress = prorgress;
+  user.progress = [...user.progress, prorgress];
 
- 
   await user.save();
   course.subscribers.push(user._id);
   await course.save();
@@ -137,3 +136,5 @@ exports.getAvailableCourses = asyncHandler(async (req, res, next) => {
     courses: availableCourses,
   });
 });
+
+
