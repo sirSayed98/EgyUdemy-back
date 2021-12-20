@@ -8,7 +8,7 @@ const Answer = require("../models/Answer");
 // @route     POST /api/v1/courses
 // @access    Private (admin-intructor)
 exports.addCourse = asyncHandler(async (req, res, next) => {
-  req.body.instructor = req.user._id;
+  //req.body.instructor = req.user._id;
   const course = await Course.create(req.body);
 
   res.status(200).json({
@@ -27,6 +27,17 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     count: courses.length,
+    data: courses,
+  });
+});
+
+exports.getInstructorCourses = asyncHandler(async (req, res, next) => {
+  let courses;
+  if (req.user.role === "admin") courses = await Course.find({}, { title: 1 });
+  else courses = await Course.find({ instructor: req.user._id }, { title: 1 });
+
+  res.status(200).json({
+    success: true,
     data: courses,
   });
 });
