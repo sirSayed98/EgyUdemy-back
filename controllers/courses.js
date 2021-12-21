@@ -45,7 +45,7 @@ exports.getInstructorCourses = asyncHandler(async (req, res, next) => {
 // @desc      Get single course
 // @route     Get /api/v1/courses/:id
 // @access    Public
-exports.getSingleCourses = asyncHandler(async (req, res, next) => {
+exports.getSingleCourse = asyncHandler(async (req, res, next) => {
   const course = await Course.findById(req.params.id)
     .populate("instructor", "userName")
     .populate("sections", "title description")
@@ -152,6 +152,24 @@ exports.getCourseFAQs = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     faqs,
+  });
+});
+
+// @desc      Edit Course
+// @route     PUT /api/v1/course/:id/
+// @access    Private (admin-instructor)
+
+exports.editCourse = asyncHandler(async (req, res, next) => {
+  await checkCourseInstructor(req, next);
+
+  const course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    course,
   });
 });
 

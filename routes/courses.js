@@ -1,13 +1,14 @@
 const express = require("express");
 const {
   addCourse,
-  getSingleCourses,
+  getSingleCourse,
   getCourses,
   deleteCourse,
   askQuestion,
   answerQuestion,
   getCourseFAQs,
   getInstructorCourses,
+  editCourse,
 } = require("../controllers/courses");
 
 const router = express.Router();
@@ -22,7 +23,7 @@ router.get(
 );
 router.post("/", protect, authorize("admin", "instructor"), addCourse);
 router.get("/", getCourses);
-router.get("/:id", getSingleCourses);
+router.get("/:id", getSingleCourse);
 router.delete("/:id", protect, authorize("admin", "instructor"), deleteCourse);
 router.post(
   "/:id/ask",
@@ -36,6 +37,8 @@ router.post(
   authorize("admin", "learner", "instructor"),
   answerQuestion
 );
+
+router.put("/:id", protect, authorize("admin", "instructor"), editCourse);
 
 router.get("/:id/FAQs", getCourseFAQs);
 
