@@ -70,3 +70,46 @@ exports.addActivityPDF = asyncHandler(async (req, res, next) => {
     data: section,
   });
 });
+// @desc      Add Video course
+// @route     GET /api/v1/sections/:id
+// @access    Public
+exports.getSingleSection = asyncHandler(async (req, res, next) => {
+  const section = await Section.findById(req.params.id);
+
+  res.status(200).json({
+    success: true,
+    data: section,
+  });
+});
+
+// @desc      Add Video course
+// @route     PUT /api/v1/sections/:id
+// @access    Private (admin-instructor)
+
+exports.editSection = asyncHandler(async (req, res, next) => {
+  let section = await Section.findById(req.params.id).populate(
+    "course",
+    "instructor"
+  );
+
+  if (
+    req.user.role === "instructor" &&
+    JSON.stringify(req.user.id) !== JSON.stringify(section.course?.instructor)
+  ) {
+    return next(
+      new ErrorResponse(
+        `this instructor doesn't allow to add video to this course`,
+        400
+      )
+    );
+  }
+
+  section.title = req.body.title;
+  section.description = req.body.description;
+  await section.save();
+  
+  res.status(200).json({
+    success: true,
+    data: section,
+  });
+});
