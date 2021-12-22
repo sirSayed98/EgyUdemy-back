@@ -48,7 +48,7 @@ exports.getInstructorCourses = asyncHandler(async (req, res, next) => {
 exports.getSingleCourse = asyncHandler(async (req, res, next) => {
   const course = await Course.findById(req.params.id)
     .populate("instructor", "userName")
-    .populate("sections", "title description")
+    .populate("sections", "title description activitiesVideos activitiesPDFs")
     .populate({
       path: "FAQs",
       select: "answer title createdAt",

@@ -8,6 +8,26 @@ const Course = require("../models/Course");
 // @access    Private (admin-instructor)
 exports.addSection = asyncHandler(async (req, res, next) => {
   let course = await Course.findById(req.params.courseId);
+
+  if (!course) {
+    return next(
+      new ErrorResponse(`the course with id ${req.params.id} not found `, 404)
+    );
+  }
+  const userRole = req.user.role;
+  const userID = req.user._id;
+
+  if (
+    userRole === "instructor" &&
+    JSON.stringify(userID) !== JSON.stringify(course.instructor)
+  ) {
+    return next(
+      new ErrorResponse(
+        `this instructor doesn't allow to add sections to this course`,
+        400
+      )
+    );
+  }
   req.body.course = req.params.courseId;
 
   const section = await Section.create(req.body);
