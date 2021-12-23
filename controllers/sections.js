@@ -48,7 +48,7 @@ exports.addSection = asyncHandler(async (req, res, next) => {
 
 exports.addActivityVideo = asyncHandler(async (req, res, next) => {
   let section = await Section.findById(req.params.sectionId);
-  section.activitiesVideos = [...section.activitiesVideos, req.body];
+  section.activitiesVideos = [...section.activitiesVideos, ...req.body];
 
   await section.save();
   res.status(200).json({
@@ -62,7 +62,7 @@ exports.addActivityVideo = asyncHandler(async (req, res, next) => {
 // @access    Private (admin-instructor)
 exports.addActivityPDF = asyncHandler(async (req, res, next) => {
   let section = await Section.findById(req.params.sectionId);
-  section.activitiesPDFs = [...section.activitiesPDFs, req.body];
+  section.activitiesPDFs = [...section.activitiesPDFs, ...req.body];
 
   await section.save();
   res.status(200).json({
