@@ -54,7 +54,7 @@ exports.getSingleCourse = asyncHandler(async (req, res, next) => {
       select: "answer title createdAt",
       populate: {
         path: "answers",
-        select: "answer userID",
+        select: "answer userID userName createdAt",
       },
     });
   res.status(200).json({
