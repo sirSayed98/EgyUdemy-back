@@ -107,7 +107,7 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: user,
+    user,
   });
 });
 
@@ -117,12 +117,7 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
 exports.updatePassword = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id).select("+password");
 
-  // Check current password
-  if (!(await user.matchPassword(req.body.currentPassword))) {
-    return next(new ErrorResponse("Password is incorrect", 401));
-  }
-
-  user.password = req.body.newPassword;
+  user.password = req.body.password;
   await user.save();
 
   sendTokenResponse(user, 200, res);
