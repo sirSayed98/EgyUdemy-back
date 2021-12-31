@@ -1,0 +1,9 @@
+http://www.davekuhlman.org/python_book_01.pdf
+http://tdc-www.harvard.edu/Python.pdf
+https://everythingcomputerscience.com/books/Machine%20Learning%20for%20Humans.pdf
+https://matfuvit.github.io/UVIT/predavanja/literatura/TutorialsPoint%20JavaScript.pdf
+https://drive.google.com/file/d/11CoPBCQHwVTlv7_u1UKSdo3xo1HlCncj/view
+https://drive.google.com/file/d/1Nm2pEObo_oeUmw-rmlawXbeOTWzjeHcn/view
+https://go.neo4j.com/rs/710-RRC-335/images/Neo4j_Graph_Algorithms.pdf
+https://wtf.tw/ref/duckett.pdf
+

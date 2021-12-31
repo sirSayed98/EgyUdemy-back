@@ -1,0 +1,66 @@
+[
+  {
+    "_id": "61cec834a8b30b4504688e78",
+    "sections": ["61ceca2da8b30b4504688e81"],
+    "subscribers": [],
+    "FAQs": [
+      "61cec93da8b30b4504688e7b",
+      "61cec97ea8b30b4504688e7d",
+      "61cec9c2a8b30b4504688e7f"
+    ],
+    "title": "2022 Complete Python Bootcamp",
+    "description": "Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games",
+    "weeks": "12",
+    "tuition": "100",
+    "minimumSkill": "beginner",
+    "instructor": "61b10c5d9afd782e10d1c60d"
+  },
+  {
+    "_id": "61cec87aa8b30b4504688e79",
+    "sections": ["61cecd36a8b30b4504688e82"],
+    "subscribers": [],
+    "FAQs": ["61cecdf0a8b30b4504688e83", "61cece1ca8b30b4504688e85"],
+    "title": "Machine Learning A-Z™",
+    "description": "Hands-On Python & R In Data Science\nLearn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.",
+    "weeks": "10",
+    "tuition": "120",
+    "minimumSkill": "intermediate",
+    "instructor": "61b10c5d9afd782e10d1c60d"
+  },
+  {
+    "_id": "61cec8b9a8b30b4504688e7a",
+    "sections": ["61cece7ea8b30b4504688e87"],
+    "subscribers": [],
+    "FAQs": ["61cecf19a8b30b4504688e88", "61cecf44a8b30b4504688e8a"],
+    "title": "Python for Data Science",
+    "description": "Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!",
+    "weeks": "10",
+    "tuition": "130",
+    "minimumSkill": "advanced",
+    "instructor": "61b10c5d9afd782e10d1c60d"
+  },
+  {
+    "_id": "61ced201a8b30b4504688e8c",
+    "sections": ["61ced322a8b30b4504688e91"],
+    "subscribers": [],
+    "FAQs": ["61ced21ca8b30b4504688e8d", "61ced247a8b30b4504688e8f"],
+    "title": "HTML",
+    "description": "Learn modern HTML5, CSS3 and web design by building a stunning website for your portfolio! Includes flexbox and CSS Grid",
+    "weeks": "12",
+    "tuition": "10",
+    "minimumSkill": "intermediate",
+    "instructor": "61bf2a1f2d7a2a4dd0f2240f"
+  },
+  {
+    "_id": "61cee20ae2cd202dd49c14ed",
+    "sections": ["61cee2b2e2cd202dd49c14f0"],
+    "subscribers": [],
+    "FAQs": ["61cee22ce2cd202dd49c14ee"],
+    "title": "React Front To Back 2022",
+    "description": "Learn modern React by building 3 projects. Suitable for all skill levels",
+    "weeks": "4",
+    "tuition": "200",
+    "minimumSkill": "intermediate",
+    "instructor": "61bf2a1f2d7a2a4dd0f2240f"
+  }
+]

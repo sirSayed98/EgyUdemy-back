@@ -3,13 +3,17 @@ const asyncHandler = require("../middleware/async");
 const Course = require("../models/Course");
 const FAQs = require("../models/FAQs");
 const Answer = require("../models/Answer");
+const User = require("../models/User");
 
 // @desc      Add course
 // @route     POST /api/v1/courses
 // @access    Private (admin-intructor)
 exports.addCourse = asyncHandler(async (req, res, next) => {
-  //req.body.instructor = req.user._id;
   const course = await Course.create(req.body);
+  let user = await User.findById(req.user.id);
+  user.courses = [...user.courses, course._id];
+
+  await user.save();
 
   res.status(200).json({
     success: true,
@@ -47,7 +51,10 @@ exports.getInstructorCourses = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.getSingleCourse = asyncHandler(async (req, res, next) => {
   const course = await Course.findById(req.params.id)
-    .populate("instructor", "userName")
+    .populate(
+      "instructor",
+      "userName firstName lastName instructorDesc courses"
+    )
     .populate("sections", "title description activitiesVideos activitiesPDFs")
     .populate({
       path: "FAQs",
@@ -65,9 +72,20 @@ exports.getSingleCourse = asyncHandler(async (req, res, next) => {
 
 // @desc      Get single course
 // @route     Get /api/v1/courses/:id
-// @access    Private(admin)
+// @access    Private(admin-Instructor)
 exports.deleteCourse = asyncHandler(async (req, res, next) => {
-  await Course.findByIdAndDelete(req.params.id);
+  await checkCourseInstructor(req, next);
+  const course = await Course.findByIdAndDelete(req.params.id);
+
+  let user = await User.findById(course.instructor);
+  let index = user?.courses.indexOf(req.params.id);
+
+  if (index !== -1) {
+    user.courses.splice(index, 1);
+  }
+
+  await user.save();
+
   res.status(200).json({
     success: true,
     data: {},

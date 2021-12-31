@@ -47,7 +47,13 @@ exports.addSection = asyncHandler(async (req, res, next) => {
 // @access    Private (admin-instructor)
 
 exports.addActivityVideo = asyncHandler(async (req, res, next) => {
-  let section = await Section.findById(req.params.sectionId);
+  let section = await Section.findById(req.params.sectionId).populate(
+    "course",
+    "instructor"
+  );
+
+  checkInstructor(req, next, section);
+
   section.activitiesVideos = [...section.activitiesVideos, ...req.body];
 
   await section.save();
@@ -61,7 +67,13 @@ exports.addActivityVideo = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/sections/:sectionId/pdf
 // @access    Private (admin-instructor)
 exports.addActivityPDF = asyncHandler(async (req, res, next) => {
-  let section = await Section.findById(req.params.sectionId);
+  let section = await Section.findById(req.params.sectionId).populate(
+    "course",
+    "instructor"
+  );
+
+  checkInstructor(req, next, section);
+
   section.activitiesPDFs = [...section.activitiesPDFs, ...req.body];
 
   await section.save();
@@ -92,24 +104,28 @@ exports.editSection = asyncHandler(async (req, res, next) => {
     "instructor"
   );
 
+  checkInstructor(req, next, section);
+
+  section.title = req.body.title;
+  section.description = req.body.description;
+  await section.save();
+
+  res.status(200).json({
+    success: true,
+    data: section,
+  });
+});
+
+const checkInstructor = (req, next, section) => {
   if (
     req.user.role === "instructor" &&
     JSON.stringify(req.user.id) !== JSON.stringify(section.course?.instructor)
   ) {
     return next(
       new ErrorResponse(
-        `this instructor doesn't allow to add video to this course`,
+        `this instructor doesn't allow to edit this section `,
         400
       )
     );
   }
-
-  section.title = req.body.title;
-  section.description = req.body.description;
-  await section.save();
-  
-  res.status(200).json({
-    success: true,
-    data: section,
-  });
-});
+};

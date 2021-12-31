@@ -1,0 +1,94 @@
+[
+  {
+    "_id": "61b10c5d9afd782e10d1c60d",
+    "role": "admin",
+    "firstName": "mohamed",
+    "lastName": "sayed",
+    "userName": "mohamed",
+    "email": "mohamed@mohamed.com",
+    "password": "123456",
+    "birthDate": "20/11/1998",
+    "instructorDesc": "Software Engineer",
+    "courses": [
+      "61cec834a8b30b4504688e78",
+      "61cec87aa8b30b4504688e79",
+      "61cec8b9a8b30b4504688e7a"
+    ]
+  },
+  {
+    "_id": "61b1f2b6d7d1964644a82768",
+    "role": "instructor",
+    "firstName": "mohamed",
+    "lastName": "sayed",
+    "userName": "sayed",
+    "email": "sayed@sayed.com",
+    "password": "123456",
+    "birthDate": "20/11/1998",
+    "instructorDesc": "Software Engineer"
+  },
+  {
+    "_id": "61b1f2c9d7d1964644a82769",
+    "role": "instructor",
+    "firstName": "mohamed",
+    "lastName": "sayed",
+    "userName": "SirSayed",
+    "email": "sirSayed@sirSayed.com",
+    "password": "123456",
+    "birthDate": "20/11/1998",
+    "instructorDesc": "Software Engineer",
+    "createdAt": "2021-12-18T20:48:56.607+00:00"
+  },
+  {
+    "_id": "61bf1f892d7a2a4dd0f22404",
+    "role": "instructor",
+    "firstName": "mohamed",
+    "lastName": "sayed",
+    "userName": "SirSayed_",
+    "email": "SirSayed@SirSayed.com",
+    "password": "123456",
+    "birthDate": "1998-11-20",
+    "instructorDesc": "Software Engineer"
+  },
+  {
+    "_id": "61bf222b2d7a2a4dd0f22405",
+    "role": "learner",
+    "firstName": "mohamed",
+    "lastName": "sayed",
+    "userName": "Saiko",
+    "email": "Saiko@Saiko.com",
+    "password": "123456",
+    "birthDate": "1998-11-20"
+  },
+  {
+    "_id": "61bf22902d7a2a4dd0f22406",
+    "role": "learner",
+    "firstName": "mohamed",
+    "lastName": "hassanin",
+    "userName": "hassanin",
+    "email": "hassanin@hassanin.com",
+    "password": "123456",
+    "birthDate": "1998-11-20"
+  },
+  {
+    "_id": "61bf22e32d7a2a4dd0f22407",
+    "role": "learner",
+    "firstName": "Ali",
+    "lastName": "Abozeid",
+    "userName": "Abozeid",
+    "email": "Abozeid@Abozeid.com",
+    "password": "123456",
+    "birthDate": "1998-11-20"
+  },
+  {
+    "_id": "61bf2a1f2d7a2a4dd0f2240f",
+    "role": "instructor",
+    "firstName": "Maheed",
+    "lastName": "Hatem",
+    "userName": "Maheed",
+    "email": "Maheed@Maheed.com",
+    "password": "123456",
+    "birthDate": "2011-02-19",
+    "instructorDesc": "TA assistant at Cairo university",
+    "courses": ["61ced201a8b30b4504688e8c", "61cee20ae2cd202dd49c14ed"]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "61cec93da8b30b4504688e7b",
+    "answers": ["61cec956a8b30b4504688e7c"],
+    "title": "Everything on this course is a goldmine except for the GUI",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec834a8b30b4504688e78"
+  },
+  {
+    "_id": "61cec97ea8b30b4504688e7d",
+    "answers": ["61cec981a8b30b4504688e7e"],
+    "title": "Who is the instructor ?",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec834a8b30b4504688e78"
+  },
+  {
+    "_id": "61cec9c2a8b30b4504688e7f",
+    "answers": ["61cec9d1a8b30b4504688e80"],
+    "title": "I actually went from zero to hero in Python. Thanks for the well thought course",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec834a8b30b4504688e78"
+  },
+  {
+    "_id": "61cecdf0a8b30b4504688e83",
+    "answers": ["61cece00a8b30b4504688e84"],
+    "title": "Who can take this Course ?",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec87aa8b30b4504688e79"
+  },
+  {
+    "_id": "61cece1ca8b30b4504688e85",
+    "answers": ["61cece2aa8b30b4504688e86"],
+    "title": "Can I get Promo Code ?",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec87aa8b30b4504688e79"
+  },
+  {
+    "_id": "61cecf19a8b30b4504688e88",
+    "answers": ["61cecf23a8b30b4504688e89"],
+    "title": "The Course so expensive",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec8b9a8b30b4504688e7a"
+  },
+  {
+    "_id": "61cecf44a8b30b4504688e8a",
+    "answers": ["61cecf4ea8b30b4504688e8b"],
+    "title": "Are there updates upcoming",
+    "userID": "61b10c5d9afd782e10d1c60d",
+    "courseID": "61cec8b9a8b30b4504688e7a"
+  },
+  {
+    "_id": "61ced21ca8b30b4504688e8d",
+    "answers": ["61ced22ca8b30b4504688e8e"],
+    "title": "Is it useful for backend dev ?",
+    "userID": "61bf2a1f2d7a2a4dd0f2240f",
+    "courseID": "61ced201a8b30b4504688e8c"
+  },
+  {
+    "_id": "61ced247a8b30b4504688e8f",
+    "answers": ["61ced269a8b30b4504688e90"],
+    "title": "Are there advanced projects ?",
+    "userID": "61bf2a1f2d7a2a4dd0f2240f",
+    "courseID": "61ced201a8b30b4504688e8c"
+  },
+  {
+    "_id": "61cee22ce2cd202dd49c14ee",
+    "answers": ["61cee236e2cd202dd49c14ef"],
+    "title": "What are Perquisites  for this course ?",
+    "userID": "61bf2a1f2d7a2a4dd0f2240f",
+    "courseID": "61cee20ae2cd202dd49c14ed"
+  }
+]

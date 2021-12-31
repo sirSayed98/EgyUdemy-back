@@ -1,0 +1,88 @@
+[
+  {
+    "_id": "61ceca2da8b30b4504688e81",
+    "activitiesVideos": [
+      { "label": "Basics", "src": "_uQrJ0TkZlc" },
+      { "label": "Python algos", "src": "pkYVOmU3MgA" }
+    ],
+    "activitiesPDFs": [
+      {
+        "label": "Python",
+        "src": "http://www.davekuhlman.org/python_book_01.pdf"
+      },
+      {
+        "label": "Advanced Python",
+        "src": "http://tdc-www.harvard.edu/Python.pdf"
+      }
+    ],
+    "title": "Python Setup",
+    "description": "Command Line Basics, Running Python Code",
+    "course": "61cec834a8b30b4504688e78"
+  },
+  {
+    "_id": "61cecd36a8b30b4504688e82",
+    "activitiesVideos": [
+      { "label": "Intro", "src": "h0e2HAPTGF4" },
+      { "label": "Clustering", "src": "esmzYhuFnds" }
+    ],
+    "activitiesPDFs": [
+      {
+        "label": "Basics Algos",
+        "src": "https://everythingcomputerscience.com/books/Machine%20Learning%20for%20Humans.pdf"
+      },
+      {
+        "label": "Prediction ",
+        "src": "https://drive.google.com/file/d/11CoPBCQHwVTlv7_u1UKSdo3xo1HlCncj/view"
+      }
+    ],
+    "title": "Make accurate predictions",
+    "description": "Data Preprocessing\n",
+    "course": "61cec87aa8b30b4504688e79"
+  },
+  {
+    "_id": "61cece7ea8b30b4504688e87",
+    "activitiesVideos": [
+      { "label": "Linear", "src": "nk2CQITm_eo" },
+      { "label": "Linear adv", "src": "E5RjzSK0fvY" }
+    ],
+    "activitiesPDFs": [
+      {
+        "label": "Linear Reg",
+        "src": "https://drive.google.com/file/d/1Nm2pEObo_oeUmw-rmlawXbeOTWzjeHcn/view"
+      },
+      {
+        "label": "Another Teq",
+        "src": "https://go.neo4j.com/rs/710-RRC-335/images/Neo4j_Graph_Algorithms.pdf"
+      }
+    ],
+    "title": "Simple Linear Regression",
+    "description": "Learn Linear Regression from A-Z\n",
+    "course": "61cec8b9a8b30b4504688e7a"
+  },
+  {
+    "_id": "61ced322a8b30b4504688e91",
+    "activitiesVideos": [{ "label": "Intro", "src": "UB1O30fR-EE" }],
+    "activitiesPDFs": [
+      { "label": "Tags", "src": "https://wtf.tw/ref/duckett.pdf" }
+    ],
+    "title": "What is HTML ?",
+    "description": "Introduction for HTML and Web dev\n",
+    "course": "61ced201a8b30b4504688e8c"
+  },
+  {
+    "_id": "61cee2b2e2cd202dd49c14f0",
+    "activitiesVideos": [
+      { "label": "JS", "src": "hdI2bqOjy3c" },
+      { "label": "Crash Course", "src": "w7ejDZ8SWv8" }
+    ],
+    "activitiesPDFs": [
+      {
+        "label": "JSX",
+        "src": "https://matfuvit.github.io/UVIT/predavanja/literatura/TutorialsPoint%20JavaScript.pdf"
+      }
+    ],
+    "title": "React Basics && JSX",
+    "description": "Initializing React , Intro To JSX\n and Dynamic Values & Lists in JSX\n\n",
+    "course": "61cee20ae2cd202dd49c14ed"
+  }
+]

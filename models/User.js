@@ -49,6 +49,9 @@ const UserSchema = new mongoose.Schema({
   progress: {
     type: Array,
   },
+  instructorDesc: {
+    type: String,
+  },
 
   createdAt: {
     type: Date,
